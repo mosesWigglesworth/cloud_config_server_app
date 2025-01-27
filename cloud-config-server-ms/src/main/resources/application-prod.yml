@@ -1,22 +1,33 @@
-# Conversion to YAML from Properties formar report
-# Warnings:
-# - The yaml file had comments which are lost in the refactoring!
+# Spring Application Name
 spring:
   application:
     name: cloud-config-server-ms
+# Admin Server Details
+  boot:
+    admin:
+      client:
+        url: http://localhost:32768
+
+# Spring Cloud Config Details
   cloud:
     config:
       server:
         git:
           uri: https://github.com/mosesWigglesworth/cloud_config_props_repo
           clone-on-start: true
+
+# Server Port No
 server:
   port: 32769
+
+# Spring Actuator End Points
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+# Logging Details
 logger:
   name: cloud-config-server-log
   path: D://Java - MS - Dev End - End//00.Log//${logger.name}.log
