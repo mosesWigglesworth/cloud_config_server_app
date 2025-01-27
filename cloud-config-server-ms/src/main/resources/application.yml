@@ -1,22 +1,3 @@
 spring:
-# Application Name
-  application:
-    name: cloud-config-server-ms
-
-# Cloud Config Server URL
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/mosesWigglesworth/cloud_config_props_repo
-          clone-on-start: true
-# Server Port
-server:
-  port: 32769
-
-# Actuator
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+  profiles:
+    active: dev

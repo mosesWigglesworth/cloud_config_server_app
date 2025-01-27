@@ -1,0 +1,24 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+spring:
+  application:
+    name: cloud-config-server-ms
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mosesWigglesworth/cloud_config_props_repo
+          clone-on-start: true
+server:
+  port: 32769
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logger:
+  name: cloud-config-server-log
+  path: D://Java - MS - Dev End - End//00.Log//${logger.name}.log
+logging:
+  config: classpath:logback.xml
