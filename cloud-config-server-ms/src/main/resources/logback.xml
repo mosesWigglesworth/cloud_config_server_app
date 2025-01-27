@@ -50,28 +50,17 @@
 	</appender>
 
 	<appender name="console"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>${ConsoleConversionPattern}</pattern>
+			<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+				<level>${log.DefaultFileLogThreshold}</level>
+			</filter>
 		</encoder>
 	</appender>
 
-	<springProfile name="dev">
-		<root level="INFO">
-			<appender-ref ref="file" />
-			<appender-ref ref="console" />
-		</root>
-	</springProfile>
-
-	<springProfile name="prod">
-		<root level="ERROR">
-			<appender-ref ref="file" />
-			<appender-ref ref="console" />
-		</root>
-	</springProfile>
-
-	<include resource="org/springframework/boot/logging/logback/base.xml" />
-	<logger name="org.springframework.web" level="DEBUG">
+	<root level="INFO">
+		<appender-ref ref="console" />
 		<appender-ref ref="file" />
-	</logger>
+	</root>
 </configuration>
